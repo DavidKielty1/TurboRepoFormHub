@@ -19,7 +19,7 @@ const resolvers = {
       await Promise.all(
         times(count ?? 1).map(async () => {
           await enqueue('generateSubmissions');
-        })
+        }),
       );
       return true;
     },

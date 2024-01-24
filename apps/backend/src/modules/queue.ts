@@ -6,6 +6,10 @@ const QUEUE_NAME = 'default';
 if (!process.env.REDIS_HOST) {
   console.warn('REDIS_HOST is not defined');
 }
+console.log(
+  `Redis host: ${process.env.REDIS_HOST}, Redis port: ${process.env.REDIS_PORT}`,
+);
+
 const connection = {
   host: process.env.REDIS_HOST,
 };
@@ -20,7 +24,7 @@ const worker = new Worker(
       console.log(submission);
     }
   },
-  { connection }
+  { connection },
 );
 
 type JobName = 'generateSubmissions';

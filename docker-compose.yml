@@ -23,7 +23,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - 8000:8000
+      - 8080:8080
       - 9229:9229 # debugger port
     volumes:
       - ./apps/backend:/app/apps/backend
