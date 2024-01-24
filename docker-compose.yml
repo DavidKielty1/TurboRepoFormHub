@@ -1,0 +1,42 @@
+version: "2"
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: webapp_dev
+      POSTGRES_HOST_AUTH_METHOD: trust
+    networks:
+      - app_network
+
+  redis:
+    image: redis:6.2.5-alpine
+    networks:
+      - app_network
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./apps/backend/Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
+      - 9229:9229 # debugger port
+    volumes:
+      - ./apps/backend:/app/apps/backend
+      - /app/apps/backend/app/.pnpm-store
+      - /app/apps/backend/node_modules
+    command: pnpm start:docker
+    environment:
+      DATABASE_URL: postgres://postgres@postgres/webapp_dev
+      PORT: 8080
+      REDIS_HOST: redis
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    external: true
