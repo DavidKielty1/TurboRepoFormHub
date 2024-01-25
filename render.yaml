@@ -7,7 +7,7 @@ services:
     buildFilter:
       paths:
         - apps/backend/**
-    buildCommand: pnpm i && pnpx prisma generate && pnpm run build --filter=backend
+    buildCommand: pnpm i && npx prisma generate && npm run build --filter=backend
     startCommand: cd apps/backend; pnpm run start
     envVars:
       - key: DATABASE_URL
