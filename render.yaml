@@ -25,7 +25,6 @@ services:
     env: static
     name: fh-prob-frontend1
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
-    plan: free
     buildFilter:
       paths:
         - apps/frontend/**
