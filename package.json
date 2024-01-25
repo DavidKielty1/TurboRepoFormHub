@@ -2,6 +2,7 @@
   "name": "form-hub",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "turbo run build --filter=frontend",
     "dev": "turbo dev --filter=frontend --parallel",
     "lint": "turbo lint",
