@@ -4,13 +4,16 @@
   "main": "src/index.js",
   "license": "MIT",
   "volta": {
-    "node": "18.15.0"
+    "node": "^18.15.0"
+  },
+  "engines": {
+    "node": "^18.15.0"
   },
   "scripts": {
     "build": "rimraf dist && swc ./src -d dist",
     "build:prisma": "prisma generate && pnpm rebuild:be",
     "db:console": "docker compose run postgres psql -h postgres -U postgres -d webapp_dev",
-    "db:migrate": "knex migrate:latest",
+    "db:migrate": "npx knex migrate:latest",
     "docker:db:migrate": "docker compose run backend pnpm db:migrate",
     "docker:db:migrate:undo": "docker compose run backend pnpx knex migrate:down",
     "docker:seed:dev": "docker compose run backend pnpm ts-node scripts/seed/dev.ts",
@@ -35,6 +38,7 @@
     "morgan": "^1.10.0",
     "nanoid": "3",
     "pg": "^8.10.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.3"
   },
   "devDependencies": {
@@ -53,7 +57,6 @@
     "@typescript-eslint/parser": "^5.57.0",
     "eslint": "^8.37.0",
     "rimraf": "^4.4.1",
-    "ts-node": "^10.9.1",
     "watchy": "^0.10.0"
   }
 }
