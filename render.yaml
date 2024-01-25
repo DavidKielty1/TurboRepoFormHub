@@ -26,7 +26,7 @@ services:
       paths:
         - apps/frontend/**
     buildCommand: pnpm i && pnpm run build --filter=frontend
-    staticPublicPath: ./apps/frontend/build
+    staticPublishPath: ./apps/frontend/build
     routes:
       - type: rewrite
         source: /*
