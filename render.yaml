@@ -5,26 +5,26 @@ services:
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
     buildFilter:
       paths:
-      - apps/backend/**
+        - apps/backend/**
     buildCommand: pnpm i && pnpm run build --filter=backend
     startCommand: cd apps/backend; pnpm run start
     envVars:
-    - key: DATABASE_URL
-      fromDatabase:
-        name: fh-prod-db1
-        property: connectionString
-    - key: REDIS_URL
-      fromService:
-        name: fh-prod-redis1
-        property: connectionString
-          
+      - key: DATABASE_URL
+        fromDatabase:
+          name: fh-prod-db1
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          name: fh-prod-redis1
+          property: connectionString
+
   - type: web
     env: static
     name: fh-prob-frontend1
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
     buildFilter:
       paths:
-      - apps/frontend/**
+        - apps/frontend/**
     buildCommand: pnpm i && pnpm run build --filter=frontend
     staticPublicPath: ./apps/frontend/build
     routes:
@@ -33,11 +33,10 @@ services:
         destination: /index.html
     envVars:
       - key: GRAPHQL_HOST
-      fromService: 
-        name: fh-prod-backend1
-        type: web
-        property: host
-
+        fromService:
+          name: fh-prod-backend1
+          type: web
+          property: host
 
   - type: redis
     name: fh-prod-redis1
