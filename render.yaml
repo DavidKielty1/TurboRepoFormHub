@@ -3,6 +3,7 @@ services:
     env: node # env: docker for larger monorepos
     name: fh-prod-backend1
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
+    plan: free"
     buildFilter:
       paths:
         - apps/backend/**
@@ -24,6 +25,7 @@ services:
     env: static
     name: fh-prob-frontend1
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
+    plan: free"
     buildFilter:
       paths:
         - apps/frontend/**
@@ -42,7 +44,9 @@ services:
 
   - type: redis
     name: fh-prod-redis1
+    plan: free"
     ipAllowList: []
 
 databases:
   - name: fh-prod-db1
+  plan: free"
