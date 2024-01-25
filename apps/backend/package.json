@@ -6,9 +6,6 @@
   "volta": {
     "node": "^18.15.0"
   },
-  "engines": {
-    "node": "^18.15.0"
-  },
   "scripts": {
     "build": "rimraf dist && swc ./src -d dist",
     "build:prisma": "prisma generate && pnpm rebuild:be",
