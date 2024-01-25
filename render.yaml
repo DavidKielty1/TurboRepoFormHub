@@ -11,10 +11,12 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
+          type: database
           name: fh-prod-db1
           property: connectionString
       - key: REDIS_URL
         fromService:
+          type: redis
           name: fh-prod-redis1
           property: connectionString
 
@@ -34,8 +36,8 @@ services:
     envVars:
       - key: GRAPHQL_HOST
         fromService:
-          name: fh-prod-backend1
           type: web
+          name: fh-prod-backend1
           property: host
 
   - type: redis
