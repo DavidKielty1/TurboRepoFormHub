@@ -1,7 +1,7 @@
 services:
   - type: web
     env: node # env: docker for larger monorepos
-    name: fh-prod-backend1-6sr8
+    name: fh-prod-backend1
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
     plan: free
     buildFilter:
@@ -23,7 +23,7 @@ services:
 
   - type: web
     env: static
-    name: fh-prob-frontend1-iqmi
+    name: fh-prob-frontend1
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
     buildFilter:
       paths:
