@@ -23,7 +23,7 @@ services:
 
   - type: web
     env: static
-    name: fh-prob-frontend1
+    name: fh-prod-frontend1
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
     buildFilter:
       paths:
