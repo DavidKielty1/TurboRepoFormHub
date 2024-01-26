@@ -2,9 +2,11 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import "./App.css";
 import Dashboard from "./screens/Dashboard";
 
-const URL = process.env.REACT_APP_GRAPHQL_HOST
-  ? `https://${process.env.REACT_APP_GRAPHQL_HOST}.onrender.com/graphql`
-  : "http://localhost:8080/graphql";
+// const URL = process.env.REACT_APP_GRAPHQL_HOST
+//   ? `https://${process.env.REACT_APP_GRAPHQL_HOST}.onrender.com/graphql`
+//   : "http://localhost:8080/graphql";
+
+const URL = "https://fh-prob-frontend1-iqmi.onrender.com";
 
 // const URL = `https://${process.env.REACT_APP_GRAPHQL_HOST}.onrender.com/graphql`;
 

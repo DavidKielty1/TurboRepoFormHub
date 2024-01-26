@@ -1,19 +1,19 @@
 services:
   - type: web
     env: node # env: docker for larger monorepos
-    name: fh-prod-backend1
+    name: fh-prod-backend1-6sr8
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
     plan: free
     buildFilter:
       paths:
         - apps/backend/**
-    buildCommand: pnpm i && npx prisma generate && npm run build
+    buildCommand: pnpm i && npx prisma generate && npm run build --filter=backend
     startCommand: cd apps/backend; pnpm run start
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          type: database
           name: fh-prod-db1
+          type: database
           property: connectionString
       - key: REDIS_URL
         fromService:
@@ -23,7 +23,7 @@ services:
 
   - type: web
     env: static
-    name: fh-prob-frontend1
+    name: fh-prob-frontend1-iqmi
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
     buildFilter:
       paths:
@@ -37,8 +37,8 @@ services:
     envVars:
       - key: REACT_APP_GRAPHQL_HOST
         fromService:
-          type: web
           name: fh-prod-backend1
+          type: web
           property: host
 
   - type: redis
