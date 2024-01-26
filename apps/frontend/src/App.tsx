@@ -6,13 +6,9 @@ import Dashboard from "./screens/Dashboard";
 //   ? `https://${process.env.REACT_APP_GRAPHQL_HOST}.onrender.com/graphql`
 //   : "http://localhost:8080/graphql";
 
-const URL = "https://fh-prob-frontend1-iqmi.onrender.com";
+const URL = "https://fh-prob-frontend1-iqmi.onrender.com/graphql";
 
 // const URL = `https://${process.env.REACT_APP_GRAPHQL_HOST}.onrender.com/graphql`;
-
-if (!process.env.REACT_APP_GRAPHQL_HOST) {
-  console.log("No reactGraphQLhost");
-}
 
 const client = new ApolloClient({
   uri: URL,
