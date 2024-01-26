@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import db from './modules/db';
 import { nanoid } from 'nanoid';
 export const genId = () => nanoid(16);
@@ -14,6 +15,7 @@ import resolvers from './graphql/resolvers';
 
 const app = express();
 app.use(morgan('dev')); // logger
+app.use(cors());
 
 app.get('/', async (req, res) => {
   const submissions = await db.submission.findMany();
@@ -37,10 +39,10 @@ const startServer = async () => {
   server.applyMiddleware({ app });
   const port = Number(process.env.PORT ?? 8080);
   await new Promise<void>((resolve) =>
-    httpServer.listen({ host: '0.0.0.0', port }, resolve)
+    httpServer.listen({ host: '0.0.0.0', port }, resolve),
   );
   console.log(
-    `🚀 Server ready at http://localhost:${port}:${server.graphqlPath}`
+    `🚀 Server ready at http://localhost:${port}:${server.graphqlPath}`,
   );
 };
 startServer();
