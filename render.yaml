@@ -38,7 +38,7 @@ services:
       - key: REACT_APP_GRAPHQL_HOST
         fromService:
           type: web
-          name: fh-prob-frontend1
+          name: fh-prod-backend1
           property: host
 
   - type: redis
