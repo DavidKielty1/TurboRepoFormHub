@@ -6,9 +6,11 @@ if (!process.env.REACT_APP_GRAPHQL_HOST) {
   console.log("No reactGraphQLhost");
 }
 
-const URL = process.env.REACT_APP_GRAPHQL_HOST
-  ? `https://${process.env.REACT_APP_GRAPHQL_HOST}.onrender.com/graphql`
-  : "http://localhost:8080/graphql";
+// const URL = process.env.REACT_APP_GRAPHQL_HOST
+//   ? `https://${process.env.REACT_APP_GRAPHQL_HOST}.onrender.com/graphql`
+//   : "http://localhost:8080/graphql";
+
+const URL = `https://${process.env.REACT_APP_GRAPHQL_HOST}.onrender.com/graphql`;
 
 const client = new ApolloClient({
   uri: URL,
