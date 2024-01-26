@@ -1,7 +1,7 @@
 services:
   - type: web
     env: node # env: docker for larger monorepos
-    name: fh-prod-backend11
+    name: fh-prod-backend1
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
     plan: free
     buildFilter:
@@ -13,17 +13,17 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           type: database
-          name: fh-prod-db11
+          name: fh-prod-db1
           property: connectionString
       - key: REDIS_URL
         fromService:
           type: redis
-          name: fh-prod-redis11
+          name: fh-prod-redis1
           property: connectionString
 
   - type: web
     env: static
-    name: fh-prod-frontend11
+    name: fh-prob-frontend1
     repo: https://github.com/DavidKielty1/TurboRepoFormHub.git
     buildFilter:
       paths:
@@ -38,7 +38,7 @@ services:
       - key: REACT_APP_GRAPHQL_HOST
         fromService:
           type: web
-          name: fh-prod-backend11
+          name: fh-prod-backend1
           property: host
 
   - type: redis
